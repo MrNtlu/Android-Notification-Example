@@ -11,7 +11,9 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,33 +25,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         notificationManager=(NotificationManager) MainActivity.this.getSystemService(NOTIFICATION_SERVICE);
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendNotification();
-            }
+        findViewById(R.id.button).setOnClickListener(view -> sendNotification());
+
+        findViewById(R.id.button2).setOnClickListener(view -> sendNotificationBigText());
+
+        findViewById(R.id.button3).setOnClickListener(view -> sendNotificationLargeImage());
+
+        findViewById(R.id.button4).setOnClickListener(view -> {
+                    sendNotificationWithAction();
         });
 
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendNotificationBigText();
-            }
-        });
 
-        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendNotificationLargeImage();
-            }
-        });
-
-        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendNotificationWithAction();
-            }
-        });
     }
 
     public NotificationManager notificationEssentials(){

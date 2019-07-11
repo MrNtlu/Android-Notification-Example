@@ -1,20 +1,20 @@
 package com.mrntlu.notificationexample;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 
-public class LambdaExpressionExamples extends AppCompatActivity {
+@SuppressLint("Registered")
+public class Java8Expressions extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -56,7 +56,7 @@ public class LambdaExpressionExamples extends AppCompatActivity {
         BiConsumer<String,String> biConsumer=(email,password)->{ //BiConsumer represents an operation that accepts two input arguments and returns no result.
             Toast.makeText(this, email+" " +password, Toast.LENGTH_SHORT).show();
         };
-        biConsumer.accept("tester","password");
+        biConsumer.accept("tester","password"); //Performs BiConsumer operation on the given arguments.
 
 
 
